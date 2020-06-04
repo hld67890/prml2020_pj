@@ -89,16 +89,18 @@ def getfold ():
         #fle.close ()
 
         #预测测试集
-        testdata = getdata("./train_cv/fold_"+str(i)+"/train.csv")
+        testdata = getdata("./train_cv/fold_"+str(i)+"/test.csv")
         tn,tfeature,tlabel = process ( testdata )
         predict = evaluate ( model , (tfeature,tlabel) )
         #print ( predict )
-        # fle = open ( "pred.out" , "w" )
-        # for i in range (tn):
+        fle = open ( "./pred/pred"+str(i)+".out" , "w" )
+        #for i in range (tn):
         #    fle.write(str(tlabel[i])+' '+str(predict[i][1])+'\n')
-        # fle.close ()
+        for i in range (tn):
+            fle.write(str(predict[i][1])+'\n')
+        fle.close ()
 
         getscore ( predict , tlabel )
 
-getans()
-#getfold()
+#getans()
+getfold()
