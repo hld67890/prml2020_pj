@@ -31,7 +31,7 @@ def padding ( n , feature , label ):
             gf[cnt] = f
             gl[cnt] = l
             cnt += 1
-    paddinglength = n
+    paddinglength = n   #扩展的长度
     pfeature = np.zeros ( (n+paddinglength, morganlengeth) )
     plabel = np.zeros ( (n+paddinglength) )
     for i in range(n):
@@ -124,5 +124,5 @@ def getfold ():
         #输出分类预测class
         #getscore_class (predict1,tlabel)
 
-getans()
-#getfold()
+#getans()
+getfold()
